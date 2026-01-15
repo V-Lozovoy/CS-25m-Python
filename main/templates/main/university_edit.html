@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Редагування даних про університет
+{% endblock %}
+
+{% block content %}
+<h2>Редагувати:</h2>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        <label for="code"><b>Код закладу в ЄДБО</b></label>
+        {{ form.code }}
+        <label for="title"><b>Назва університету</b></label>
+        {{ form.title }}
+        <label for="ownership"><b>Форма власності</b></label>
+        {{ form.ownership }}
+        <label for="rector"><b>Ім`я ректора</b></label>
+        {{ form.rector }}
+        <label for="location"><b>Адреса ЗВО</b></label>
+        {{ form.location }}
+        <label for="phone"><b>Телефон гарячої лінії</b></label>
+        {{ form.phone }}
+        <label for="email"><b>Електрона пошта</b></label>
+        {{ form.email }}
+        <label for="website"><b>Вебсайт</b></label>
+        {{ form.website }}
+        <label for="military_department"><b>Чи є військова кафедра</b></label>
+        {{ form.military_department }}
+        <label for="grants"><b>Чи є державні гранти</b></label>
+        {{ form.grants }}
+        <label for="year"><b>Рік заснування</b></label>
+        {{ form.year }}
+
+        <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Про університет
+{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 10px">Про університет:</h2>
+{% if university %}
+        <div class="alert alert-secondary mt-1">
+            <h3><u>{{ university.title }}</u></h3>
+            <p>Код закладу в ЄДБО: {{ university.code }}</p>
+            <p>Форма власності: {{ university.ownership }}</p>
+            <p><b>Ректор: {{ university.rector }}</b></p>
+            <p>Місцерозташування: {{ university.location }}</p>
+            <p>Телефон/факс: {{ university.phone }}</p>
+            <p><u>Електронна пошта: {{ university.email }}</u></p>
+            <p><u>Вебсайт університету: {{ university.website }}</u></p>
+            <p>Чи є військова кафедра: {{ university.military_department }}</p>
+            <p>Чи бере заклад участь в програмі державних грантів на здобуття вищої освіти : {{ university.grants }}</p>
+            <p>Рік заснування: <i>{{ university.year }}</i></p>
+            <p><b>Зареєстровано:</b> {{ university.created }}</p>
+
+        </div>
+{% else %}
+    <i><b>В цьому списку такого університету не знайдено.</b></i>
+{% endif %}
+{% endblock %}

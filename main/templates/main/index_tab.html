@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+ЗВО Дніпра
+{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 10px">Усі ЗВО міста Дніпро</h2>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">№</th>
+        <th scope="col">Назва університету</th>
+        <th scope="col">Форма власності</th>
+        <th scope="col">Адреса</th>
+        <th scope="col">Вебсайт</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% if universities %}
+    {% for el in universities %}
+        <tr>
+            <th scope="row">{{ el.id }}</th>
+            <td>{{ el.title }}</td>
+            <td>{{ el.ownership|upper }}</td>
+            <td>{{ el.location}}</td>
+            <td>{{ el.website }}</td>
+            <td><a type="button" class="btn btn-light btn-sm" href="/university/{{ el.id }}/view">
+                <img src="https://cdn-icons-png.flaticon.com/128/709/709612.png" width="24" height="24"></a>
+            </td>
+            <td><a type="button" class="btn btn-info btn-sm" href="/university/{{ el.id }}/edit">
+                <img src="https://cdn-icons-png.flaticon.com/128/2356/2356780.png" width="24" height="24">
+            </a>
+            </td>
+            <td><a type="button" class="btn btn-sm" href="/university/{{ el.id }}/delete">
+                <img src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png" width="24" height="24">
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% else %}
+    <i><b>В цьому списку такі університети відсутні.</b></i>
+{% endif %}
+    </tbody>
+</table>
+{% endblock %}
